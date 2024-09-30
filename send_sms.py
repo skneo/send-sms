@@ -97,9 +97,9 @@ def process_sms_sending(alert_type,api_url):
             sms=sms_data['data'][i]
             phone_number = sms.get('phone')
             if alert_type =='absentee_alerts':
-                message = f"{sms.get('stu_name')} (Id {sms.get('stu_id')}) आज स्कूल में अनुपस्थित है। इस महीने कुल {sms.get('totalA')} अनुपस्थिति हो चुकी हैं। कृपया सुनिश्चित करें कि आपका बच्चा नियमित रूप से स्कूल आए, ताकि शैक्षणिक हानि से बचा जा सके। - {school_name}. https://{school_code}.matrixe.in?pp=1"
+                message = f"{sms.get('stu_name')} (Id {sms.get('stu_id')}) आज स्कूल में अनुपस्थित है। इस महीने कुल {sms.get('totalA')} अनुपस्थिति हो चुकी हैं। कृपया सुनिश्चित करें कि आपका बच्चा नियमित रूप से स्कूल आए, ताकि शैक्षणिक हानि से बचा जा सके। - {school_name}. https://{school_code}.example.com?pp=1"
             else:
-                message = f"{sms.get('stu_name')} (Id {sms.get('stu_id')}) की {sms.get('fee_due')} रुपये स्कूल फीस बकाया है। कृपया अपने बच्चे की स्कूल फीस समय पर जमा करें। - {school_name}. विजिट करें https://{school_code}.matrixe.in?pp=1"
+                message = f"{sms.get('stu_name')} (Id {sms.get('stu_id')}) की {sms.get('fee_due')} रुपये स्कूल फीस बकाया है। कृपया अपने बच्चे की स्कूल फीस समय पर जमा करें। - {school_name}. विजिट करें https://{school_code}.example.com?pp=1"
             if phone_number and message and len(str(phone_number)) == 10 and str(phone_number) != '9999999999':
                 print(f"Sending SMS to {phone_number}...", end="")
                 try:
